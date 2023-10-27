@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import Wrapper from '@styles/common/Wrapper';
 
 const Home = () => {
   const navigate = useNavigate();
   const [active, setActive] = useState('0');
-  const menu = ['wave', 'bounce', 'empty'];
+  const menu = ['Shape', 'bounce', 'wave'];
 
   const ClickHandler = (e: React.MouseEvent<HTMLLIElement>) => {
     const target = e.currentTarget.id;
@@ -16,27 +17,18 @@ const Home = () => {
   }
 
   return (
-    <Wapper>
+    <Wrapper $bg={'blue'}>
       <Container>
         {menu.map((menu, i) => (
           <li key={`menu-${i}`} id={`${i}`} onClick={(e) => ClickHandler(e)}>{menu}</li>
         ))}
         <Focus $active={active}/>
       </Container>
-    </Wapper>
+    </Wrapper>
   );
 };
 
 export default Home;
-
-const Wapper = styled.div`
-  background-color: #1355f6;
-  display: flex;
-  width: 100vw; 
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-`;
 
 const Container = styled.ul`
   position: relative;
@@ -54,7 +46,7 @@ const Container = styled.ul`
     list-style: none;
     display: grid;
     place-items: center;
-    color: #1355f6;
+    color: ${({ theme }) => theme.color.blue};
     z-index: 10;
     cursor: pointer;
     align-items: center;
@@ -70,7 +62,7 @@ const Focus = styled.div<{$active : string}>`
   width: calc(100% / 3);
   height: 100%;
   border-radius: 35px;
-  background: #fff;
+  background: ${({ theme }) => theme.color.white};
   box-shadow:
   0 12.5px 10px rgba(0, 0, 0, 0.015),
   0 100px 80px rgba(0, 0, 0, 0.03);

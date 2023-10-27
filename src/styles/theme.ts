@@ -7,6 +7,7 @@ export const size = {
 
 export const theme: DefaultTheme = {
   color: {
-    white: '#fff',
+    white: '#ffff',
+    blue: '#1355f6',
   },
 };

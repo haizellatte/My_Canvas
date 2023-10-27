@@ -16,6 +16,8 @@ const GlobalStyle = createGlobalStyle`
         background: #cbcbcb;
         color: ${theme.color.black};
         overflow: hidden;
+        display: flex;
+        justify-content: center;
       }
       a {
         text-decoration: none;
